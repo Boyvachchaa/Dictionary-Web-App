@@ -145,6 +145,11 @@
     }
 }
 
+.play-audio {
+    width: 75px;
+    height: 75px;
+}
+
 @media only screen and (max-width: 507px) {
     .line {
         width: 80%;
@@ -216,5 +221,10 @@
 
     .line {
         width: 70%;
+    }
+
+    .play-audio {
+        width: 48px;
+        height: 48px;
     }
 }
