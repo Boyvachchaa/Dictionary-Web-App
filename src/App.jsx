@@ -21,16 +21,21 @@ class App extends Component {
 
 
   handleSearch = async () => {
+
+    if(!this.state.searchValue.trim()) {
+      this.setState({ err: 'Input to`ldirilmadi', showRes: false, result: null })
+    }
+
     try {
       const getData = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.state.searchValue}`)
       const data = await getData.json()
       
-      if(!this.state.searchValue.trim()) {
-        this.setState({ err: 'Input to`ldirilmadi', showRes: false, result: null })
-      } else {
+      if(data.message) {
+        this.setState({ err: 'Whoops, can’t be empty…', showRes: false, result: null })
+      } 
+      else {
         this.setState({ showRes: true, result: data[0] })
       }
-      console.log(data[0])
     } catch(err) {
       console.log(err)
     }
@@ -58,7 +63,9 @@ class App extends Component {
                 alt="searchIcon" />
             </button>
           </form>
+
         </div>
+          <p className='error'>{this.state.err}</p>
 
         {showRes && (
           <MainItems 

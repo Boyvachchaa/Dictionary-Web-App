@@ -10,16 +10,15 @@ class Main extends Component {
         audio.play()
     }
     render() {
-        const {  word, phonetics, sourceUrls, meanings } = this.props
+        const {  word, phonetics, sourceUrls, meanings, phoneticTexts } = this.props
         return (
-            <div >
+            <div>
                 <div className="head">
                     <div className="head_word">
                         <h1>{ word }</h1>
-                        {phonetics.map((phonetic, idx) => {
-                            <p key={idx}>{phonetic.text}</p>
-                        })}
-                        <p>{phonetics[0].text}</p>
+                        <div className="phonetics">
+                            <p>{phoneticTexts}</p>
+                        </div>
                     </div>
                     <div className="head_audio" >
                         {phonetics[0].audio ?
@@ -30,14 +29,52 @@ class Main extends Component {
                         
                     </div>
                 </div>
-                <div className="meaning_head">
-                    <p className='type'>{meanings[0].partOfSpeech}</p>
+                {meanings.map((meaning, idx) => (
+                        <>
+                            <div key={idx} className="meaning-head">
+                                <p className="type">{meaning.partOfSpeech}</p>
+                                <div className="line"></div>
+                            </div>
+                            <div className="meanings">
+                                <p className='meaning-label'>Meaning</p>
+                                <ul>
+                                    {meaning.definitions.map((definition, subIdx) => (
+                                        <li key={subIdx}><p className="meaning-text">{definition.definition}</p></li>
+                                    ))}
+                                </ul>
+                            </div>
+                            {!meaning.synonyms.length ? null : (
+                                <div className="synonm">
+                                    <h4>Synonyms</h4>
+                                    <p>{meaning.synonyms.join(', ')}</p>
+                                </div>
+                            )}
+                            {/* {!meaning.definition.example ? 
+                                
+                                
+                                // <p className="example">
+                                //     {meanings.definitions.map((definition, idx) => {
+                                //         return 
+                                //             <p className="meaning" key={idx}>{definition?.example}</p>
+                                        
+                                //     })}
+                                // </p>
+                            } */}
+
+                            {meaning.definitions.map((definition, idx) => {
+                                return <p key={idx}>{definition.example}</p>
+                            })}
+                        </>
+                ))}
+
+                {/* <div className="meaning_head">
+                    <p className='type'>{meanings[0]?.partOfSpeech}</p>
                     <div className="line"></div>
                 </div>
                 <div className="meanings">
                     <p className='meaning'>Meaning</p>
                     <ul>
-                        {meanings[0].definitions?.map((meaning, idx) => {
+                        {meanings[0]?.definitions?.map((meaning, idx) => {
                             return (
                                 <li key={idx}><p>{meaning.definition}</p></li>
                             )
@@ -55,18 +92,17 @@ class Main extends Component {
                 <div className="meanings">
                     <p className='meaning'>Meaning</p>
                     <ul>
-                        {meanings[1].definitions?.map((meaning, idx) => {
+                        {meanings[1]?.definitions?.map((meaning, idx) => {
                             return (
                                 <li key={idx}><p>{meaning.definition}</p></li>
                             )
                         })}
                     </ul>
                     <p className="example">
-                        {/* “Keyboarding is the part of this    job I hate the most.” */}
-                        {meanings[1]?.definitions[0].example}
+                        {meanings[1]?.definitions[0]?.example}
                     </p>
                 </div>
-                <div className="full_line"></div>
+                <div className="full_line"></div> */}
                 {sourceUrls && (
                     <div className="source">
                         <p>Source</p>

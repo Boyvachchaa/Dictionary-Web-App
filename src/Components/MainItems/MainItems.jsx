@@ -8,6 +8,7 @@ class MainItems extends Component {
                 <Main
                     word={result.word}
                     phonetics={result.phonetics}
+                    phoneticTexts = {result.phonetics.map((phonetic, idx) => phonetic.text)}
                     sourceUrls={result.sourceUrls[0]}
                     meanings={result.meanings}
                 />
