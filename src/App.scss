@@ -35,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+boyd {
+  overflow-x: hidden;
+}
+
 .app {
   width: 100vw;
   min-height: 100vh;
@@ -43,14 +47,18 @@ a {
 
 .Inter {
   font-family: 'Inter';
+  font-style: normal;
+  line-height: normal;
 }
 
 .lora {
   font-family: Lora;
+  font-style: normal;
 }
 
 .Inconsolata {
   font-family: Inconsolata;
+  font-style: normal;
 }
 
 
@@ -76,15 +84,19 @@ button {
 
 
 .input-area {
-  border-radius: 16px;
-  padding: 24px 24.45px 24.45px 24px;
   background: var(--input-background);
+  padding-right: 24.45px;
+  border-radius: 16px;
   form {
     display: flex;
     justify-content: space-between;
     
     input {
-      max-width: 80%;
+      height: 64px;
+      border-radius: 16px;
+      width: 90%;
+      padding-left: 24px;
+      
       color: var(--primary-color);
       font-size: 20px;
       font-style: normal;

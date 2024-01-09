@@ -31,7 +31,8 @@ header {
                     background: transparent;
 
                     option {
-                        background: #1F1F1F;
+                        background: var(--fonts-background);
+                        cursor: pointer;
                     }
                 }
             }

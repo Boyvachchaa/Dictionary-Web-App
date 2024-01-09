@@ -72,30 +72,32 @@ class App extends Component {
             onFontChange={this.handleFontsChange}
           />
 
+              <div className={`${inputEmpty ? 'border-red' : ''} input-area`}>
+                <form name="search" onSubmit={(e) => e.preventDefault()}>
+                  <input 
+                    type="search"
+                    placeholder='Search for any word…'
+                    value={this.state.searchValue}
+                    onChange={(e) => this.setState({ searchValue: e.target.value })}
+                  />
+                  <button
+                    onClick={this.handleSearch}
+                  >
+                    <img 
+                      src={searchIcon} 
+                      alt="searchIcon" />
+                  </button>
+                </form>
+
+              </div>
+
           {loading ?
             <div className="loader">
               <img src={ loadingImg } alt="Loader" />
             </div>
             :
             <>
-              <div className={`${inputEmpty ? 'border-red' : ''} input-area`}>
-              <form name="search" onSubmit={(e) => e.preventDefault()}>
-                <input 
-                  type="search"
-                  placeholder='Search for any word…'
-                  value={this.state.searchValue}
-                  onChange={(e) => this.setState({ searchValue: e.target.value })}
-                />
-                <button
-                  onClick={this.handleSearch}
-                >
-                  <img 
-                    src={searchIcon} 
-                    alt="searchIcon" />
-                </button>
-              </form>
-
-              </div>
+              
               <p className='error'>{this.state.err}</p>
 
               {resErr && (

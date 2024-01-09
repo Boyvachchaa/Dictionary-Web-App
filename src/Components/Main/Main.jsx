@@ -59,10 +59,17 @@ class Main extends Component {
                                 <p>{meaning.synonyms.join(', ')}</p>
                             </div>
                         )}
-                        <div className="examples">
+                        {/* <div className="examples">
                             {meaning.definitions.map((definition, idx) => {
                                 return <p key={idx} className='example'>{definition.example}</p>
                             })}
+                        </div> */}
+                        <div className="examples">
+                            {meaning.definitions.map((definition, idx) => {
+                                    return(
+                                        <p className='example'>{definition.example}</p>
+                                    )
+                                })}
                         </div>
                     </>
                 ))}

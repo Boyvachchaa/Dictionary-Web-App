@@ -118,7 +118,7 @@
 .examples {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    // gap: 10px;
     .example {
         color: #757575;
         font-size: 18px;
@@ -126,7 +126,7 @@
         font-weight: 400;
         line-height: 24px;
     }
-    padding: 13px 0px 40px 35px;
+    // padding: 13px 0px 40px 35px;
 }
 
 
@@ -163,6 +163,11 @@
 .play-audio {
     width: 75px;
     height: 75px;
+}
+
+.head_audio {
+    display: flex;
+    gap: 10px;
 }
 
 @media only screen and (max-width: 738px) {
