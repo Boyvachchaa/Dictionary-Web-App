@@ -28,7 +28,11 @@ header {
                     outline: none;
                     border: none;
                     padding: 10px;
-                    background: var(--fonts-background);
+                    background: transparent;
+
+                    option {
+                        background: #1F1F1F;
+                    }
                 }
             }
         }

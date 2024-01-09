@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
 
-:root {
+.light {
   --body-background: #FFF;
   --primary-color: #2D2D2D;
   --input-background: #F4F4F4;
@@ -10,7 +10,7 @@
   --fonts-background: #FFF;
 }
 
-[data-theme="dark"] {
+.dark {
   --body-background: #050505;
   --primary-color: #FFF;
   --input-background: #1F1F1F;
@@ -24,9 +24,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Inter;
-}
 
 
 input[type="search"]::-webkit-search-decoration,
@@ -37,6 +34,26 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 a {
   text-decoration: none;
 }
+
+.app {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--body-background);
+}
+
+.Inter {
+  font-family: 'Inter';
+}
+
+.lora {
+  font-family: Lora;
+}
+
+.Inconsolata {
+  font-family: Inconsolata;
+}
+
+
 
 buttton, input {
   outline: 0;
@@ -123,6 +140,11 @@ button {
     font-weight: '400';
     line-height: 24px;
   }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
 }
 @media only screen and (max-width: 383px) {
   .input-area {

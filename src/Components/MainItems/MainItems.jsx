@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Main from '../Main/Main';
 class MainItems extends Component {
     render() {
-        const { result } = this.props
+        const { result, changeMode } = this.props
         return (
             <div>
                 <Main

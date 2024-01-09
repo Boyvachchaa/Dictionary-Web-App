@@ -6,10 +6,12 @@ import noPlayBtn from '../../assets/Icons/no-play.png'
 class Main extends Component {
 
 
-    playAudioFunction = () => {
-        const audio = new Audio(this.props.phonetics[0].audio)
-        audio.play()
+    playAudioFunction = (audioUrl) => {
+        const audio = new Audio(audioUrl);
+        audio.play();
     }
+
+
     render() {
         const {  word, phonetics, sourceUrls, meanings, phoneticTexts } = this.props
         return (
@@ -21,13 +23,19 @@ class Main extends Component {
                             <p>{phoneticTexts}</p>
                         </div>
                     </div>
-                    <div className="head_audio" >
-                        {phonetics[0].audio ?
-                            <img src={ playAudio } alt="play Btn" onClick={this.playAudioFunction} className='play-audio'/>
+                    <div className="head_audio">
+                        {phonetics?.map((phonetic, idx) => (
+                            phonetic.audio !== ""? 
+                                <img
+                                    src={playAudio}
+                                    alt="play Btn"
+                                    onClick={() => this.playAudioFunction(phonetic.audio)}
+                                    className='play-audio'
+                                    key={idx}
+                                />
                             :
-                            <img src={ noPlayBtn } alt="no Play Btn" className='play-audio'/>
-                        }
-                        
+                                null
+                        ))}
                     </div>
                 </div>
                 {meanings.map((meaning, idx) => (
