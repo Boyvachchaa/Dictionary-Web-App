@@ -13,7 +13,9 @@ class App extends Component {
       result: null, 
       showRes: false,
       changeMode: true,
-      err: false,
+      err: '',
+      resErr: false,
+      inputEmpty: false,
     }
   }
 
@@ -23,7 +25,7 @@ class App extends Component {
   handleSearch = async () => {
 
     if(!this.state.searchValue.trim()) {
-      this.setState({ err: 'Input to`ldirilmadi', showRes: false, result: null })
+      this.setState({ err: 'Whoops, can’t be empty…', showRes: false, resErr: false, result: null, inputEmpty: true })
     }
 
     try {
@@ -31,10 +33,10 @@ class App extends Component {
       const data = await getData.json()
       
       if(data.message) {
-        this.setState({ err: 'Whoops, can’t be empty…', showRes: false, result: null })
+        this.setState({ err: '', showRes: false, result: null, resErr: true, inputEmpty: false })
       } 
       else {
-        this.setState({ showRes: true, result: data[0] })
+        this.setState({ showRes: true, result: data[0], resErr: false })
       }
     } catch(err) {
       console.log(err)
@@ -42,11 +44,11 @@ class App extends Component {
   }
   
   render() {
-    const { showRes, result } = this.state
+    const { showRes, result, inputEmpty, resErr } = this.state
     return (
       <div className='app container' data-theme={`${this.state.changeMode ? 'light' : 'dark'}`}>
         <Header />
-        <div className="input-area">
+        <div className={`${inputEmpty ? 'border-red' : ''} input-area`}>
           <form name="search" onSubmit={(e) => e.preventDefault()}
           >
             <input 
@@ -65,7 +67,17 @@ class App extends Component {
           </form>
 
         </div>
-          <p className='error'>{this.state.err}</p>
+        <p className='error'>{this.state.err}</p>
+
+        {resErr && (
+          <div className="error_items">
+            <h2>😕</h2>
+            <p className='not_found'>No Definitions Found</p>
+            <p className="not_found_definitions">
+              Sorry pal, we couldn't find definitions for the word you were looking for. You can try the  search again at later time or head to the web instead.
+            </p>
+          </div>
+        )}
 
         {showRes && (
           <MainItems 

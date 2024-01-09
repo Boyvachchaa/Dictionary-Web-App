@@ -29,7 +29,7 @@
     }
 }
 
-.meaning_head {
+.meaning-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,6 +66,7 @@
     }
 }
 
+
 .synonm {
     display: flex;
     align-items: center;
@@ -95,7 +96,13 @@
 }
 
 .line {
-    width: 85%;
+    width: 80%;
+    height: 1px;
+    background:#E9E9E9;
+}
+
+.line_long {
+    width: 70%;
     height: 1px;
     background:#E9E9E9;
 }
@@ -108,14 +115,20 @@
     line-height: normal;
 }
 
-.example {
-    color: #757575;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
+.examples {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .example {
+        color: #757575;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
     padding: 13px 0px 40px 35px;
 }
+
 
 .full_line {
     width: 100%;
@@ -152,6 +165,16 @@
     height: 75px;
 }
 
+@media only screen and (max-width: 738px) {
+    .line {
+        width: 70%;
+    }
+
+    .line_long {
+        width: 50%;
+    }
+}
+
 @media only screen and (max-width: 507px) {
     .line {
         width: 80%;
@@ -173,14 +196,14 @@
     .meaning_head {
         padding-top: 29px;
     }
-
+    
     .meanings {
         padding-top: 31px;
-
+        
         .meaning {
             font-size: 16px;
         }
-
+        
         ul {
             li {
                 p {
@@ -189,10 +212,10 @@
             }
         }
     }
-
+    
     .synonm {
         padding-top: 24px;
-
+        
         h4 {
             font-size: 16px;
         }
@@ -200,31 +223,31 @@
             font-size: 16px;
         }
     }
-
+    
     .type {
         font-size: 18px;
     }
-
+    
     .example {
         padding-bottom: 32px;
         font-size: 15px;
     }
-
+    
     .source {
         flex-direction: column;
         padding: 0;
         padding-top: 24px;
         gap: 8px;
-
+        
         a {
             padding-bottom: 20px;
         }
     }
-
+    
     .line {
         width: 70%;
     }
-
+    
     .play-audio {
         width: 48px;
         height: 48px;

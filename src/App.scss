@@ -75,6 +75,7 @@ button {
       line-height: normal;
       background-color: transparent;
     }
+    
     button {
       border: 0;
       background-color: transparent;
@@ -85,6 +86,44 @@ button {
   }
 }
 
+.border-red {
+  border: 1px solid #FF5252;
+}
+
+.error {
+  color: #FF5252;
+  font-size: 20px;
+  font-family: 'Inter';
+  font-weight: '400';
+  padding-top: 8px;
+}
+
+.error_items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 132px;
+  
+  h2 {
+    font-size: 64px;
+  }
+  .not_found {
+    padding: 44px 0px 24px;
+    color: var(--primary-color);
+    font-size: 20px;
+    font-family: 'Inter';
+    font-weight: '700';
+  }
+  
+  .not_found_definitions {
+    color: '#757575';
+    font-size: 18px;
+    font-family: 'Inter';
+    font-weight: '400';
+    line-height: 24px;
+  }
+}
 @media only screen and (max-width: 383px) {
   .input-area {
     form {

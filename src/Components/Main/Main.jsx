@@ -5,6 +5,7 @@ import noPlayBtn from '../../assets/Icons/no-play.png'
 
 class Main extends Component {
 
+
     playAudioFunction = () => {
         const audio = new Audio(this.props.phonetics[0].audio)
         audio.play()
@@ -30,79 +31,34 @@ class Main extends Component {
                     </div>
                 </div>
                 {meanings.map((meaning, idx) => (
-                        <>
-                            <div key={idx} className="meaning-head">
-                                <p className="type">{meaning.partOfSpeech}</p>
-                                <div className="line"></div>
-                            </div>
-                            <div className="meanings">
-                                <p className='meaning-label'>Meaning</p>
-                                <ul>
-                                    {meaning.definitions.map((definition, subIdx) => (
-                                        <li key={subIdx}><p className="meaning-text">{definition.definition}</p></li>
-                                    ))}
-                                </ul>
-                            </div>
-                            {!meaning.synonyms.length ? null : (
-                                <div className="synonm">
-                                    <h4>Synonyms</h4>
-                                    <p>{meaning.synonyms.join(', ')}</p>
-                                </div>
-                            )}
-                            {/* {!meaning.definition.example ? 
-                                
-                                
-                                // <p className="example">
-                                //     {meanings.definitions.map((definition, idx) => {
-                                //         return 
-                                //             <p className="meaning" key={idx}>{definition?.example}</p>
-                                        
-                                //     })}
-                                // </p>
-                            } */}
+                    <>
+                        <div key={idx} className="meaning-head">
+                            <p className="type">{meaning.partOfSpeech}</p>
+                            <div className={`${meaning.partOfSpeech.length > 4 ? 'line_long' : 'line'}`}></div>
+                        </div>
 
+                        <div className="meanings">
+                            <p className='meaning'>Meaning</p>
+                            <ul>
+                                {meaning.definitions.map((definition, subIdx) => (
+                                    <li key={subIdx}><p className="meaning-text">{definition.definition}</p></li>
+                                ))}
+                            </ul>
+                        </div>
+                        {!meaning.synonyms.length ? null : (
+                            <div className="synonm">
+                                <h4>Synonyms</h4>
+                                <p>{meaning.synonyms.join(', ')}</p>
+                            </div>
+                        )}
+                        <div className="examples">
                             {meaning.definitions.map((definition, idx) => {
-                                return <p key={idx}>{definition.example}</p>
+                                return <p key={idx} className='example'>{definition.example}</p>
                             })}
-                        </>
+                        </div>
+                    </>
                 ))}
-
-                {/* <div className="meaning_head">
-                    <p className='type'>{meanings[0]?.partOfSpeech}</p>
-                    <div className="line"></div>
-                </div>
-                <div className="meanings">
-                    <p className='meaning'>Meaning</p>
-                    <ul>
-                        {meanings[0]?.definitions?.map((meaning, idx) => {
-                            return (
-                                <li key={idx}><p>{meaning.definition}</p></li>
-                            )
-                        })}
-                    </ul>
-                </div>
-                <div className="synonm">
-                    <h4>Synonyms</h4>
-                    <p>{meanings[0].synonyms.join(', ')}</p>
-                </div>
-                <div className="meaning_head">
-                    <p className='type'>{meanings[1]?.partOfSpeech}</p>
-                    <div className="line"></div>
-                </div>
-                <div className="meanings">
-                    <p className='meaning'>Meaning</p>
-                    <ul>
-                        {meanings[1]?.definitions?.map((meaning, idx) => {
-                            return (
-                                <li key={idx}><p>{meaning.definition}</p></li>
-                            )
-                        })}
-                    </ul>
-                    <p className="example">
-                        {meanings[1]?.definitions[0]?.example}
-                    </p>
-                </div>
-                <div className="full_line"></div> */}
+                <div className="full_line"></div>
                 {sourceUrls && (
                     <div className="source">
                         <p>Source</p>
