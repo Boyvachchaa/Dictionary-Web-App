@@ -42,7 +42,7 @@ class Main extends Component {
                     <>
                         <div key={idx} className="meaning-head">
                             <p className="type">{meaning.partOfSpeech}</p>
-                            <div className={`${meaning.partOfSpeech.length < 4 || meaning.definitions.length === 4 ? 'line' : 'line_long'}`}></div>
+                            <div className={meaning.partOfSpeech.length <= 4 ? 'line' : 'line_long'}></div>
                         </div>
 
                         <div className="meanings">
