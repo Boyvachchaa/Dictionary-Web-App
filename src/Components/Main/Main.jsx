@@ -42,7 +42,7 @@ class Main extends Component {
                     <>
                         <div key={idx} className="meaning-head">
                             <p className="type">{meaning.partOfSpeech}</p>
-                            <div className={`${meaning.partOfSpeech.length > 4 ? 'line_long' : 'line'}`}></div>
+                            <div className={`${meaning.partOfSpeech.length < 4 || meaning.definitions.length === 4 ? 'line' : 'line_long'}`}></div>
                         </div>
 
                         <div className="meanings">
@@ -59,18 +59,19 @@ class Main extends Component {
                                 <p>{meaning.synonyms.join(', ')}</p>
                             </div>
                         )}
-                        {/* <div className="examples">
-                            {meaning.definitions.map((definition, idx) => {
-                                return <p key={idx} className='example'>{definition.example}</p>
-                            })}
-                        </div> */}
+
+                        {!meaning.antonyms.length ? null : (
+                            <div className="antonym synonm">
+                                <h4>Antonym</h4>
+                                <p>{meaning.antonyms.join(', ')}</p>
+                            </div>
+                        )}
                         <div className="examples">
-                            {meaning.definitions.map((definition, idx) => {
-                                    return(
-                                        <p className='example'>{definition.example}</p>
-                                    )
-                                })}
+                            {meaning.definitions.map((definition, idx) => (
+                                definition.example && <p key={idx} className='example'>{definition.example}</p>
+                            ))}
                         </div>
+
                     </>
                 ))}
                 <div className="full_line"></div>

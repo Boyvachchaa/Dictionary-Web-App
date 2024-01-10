@@ -43,6 +43,7 @@ class App extends Component {
       else {
         this.setState({ showRes: true, result: data[0], resErr: false, loading: false, inputEmpty: false, err: '' })
       }
+      console.log(data[0])
     } catch(err) {
       console.log(err)
     }

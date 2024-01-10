@@ -51,7 +51,7 @@
         display: flex;
         flex-direction: column;
         gap: 13px;
-        padding: 25px 0px 0px 35px;
+        padding: 25px 0px 20px 35px;
         li {
             color: #8F19E8;
             
@@ -72,6 +72,7 @@
     align-items: center;
     gap: 22px;
     padding-top: 40px;
+    padding-bottom: 20px;
     
     h4 {
         color:#757575;
@@ -96,7 +97,7 @@
 }
 
 .line {
-    width: 80%;
+    width: 85%;
     height: 1px;
     background:#E9E9E9;
 }
@@ -118,7 +119,6 @@
 .examples {
     display: flex;
     flex-direction: column;
-    // gap: 10px;
     .example {
         color: #757575;
         font-size: 18px;
@@ -126,7 +126,6 @@
         font-weight: 400;
         line-height: 24px;
     }
-    // padding: 13px 0px 40px 35px;
 }
 
 
@@ -134,6 +133,7 @@
     width: 100%;
     height: 1px;
     background-color: #E9E9E9;
+    margin-top: 39px;
 }
 
 .source {
@@ -172,7 +172,7 @@
 
 @media only screen and (max-width: 738px) {
     .line {
-        width: 70%;
+        width: 85%;
     }
 
     .line_long {
@@ -234,8 +234,9 @@
     }
     
     .example {
-        padding-bottom: 32px;
-        font-size: 15px;
+        p {
+            font-size: 15px;
+        }
     }
     
     .source {
@@ -256,5 +257,12 @@
     .play-audio {
         width: 48px;
         height: 48px;
+    }
+}
+
+@media only screen and (max-width: 328px) {
+    .head_audio {
+        display: flex;
+        flex-direction: column;
     }
 }
