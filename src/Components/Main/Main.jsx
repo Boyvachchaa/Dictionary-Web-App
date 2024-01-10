@@ -34,7 +34,12 @@ class Main extends Component {
                                     key={idx}
                                 />
                             :
-                                null
+                                <img 
+                                    src={noPlayBtn}
+                                    alt="no play btn"
+                                    className='play-audio'
+                                    key={idx}
+                                />
                         ))}
                     </div>
                 </div>
