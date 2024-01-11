@@ -148,7 +148,7 @@ button {
   }
   
   .not_found_definitions {
-    color: '#757575';
+    color: var(--primary-color);
     font-size: 18px;
     font-family: 'Inter';
     font-weight: '400';
