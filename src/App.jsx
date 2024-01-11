@@ -105,7 +105,7 @@ class App extends Component {
                 <div className="error_items">
                   <h2>😕</h2>
                   <p className='not_found'>No Definitions Found</p>
-                  <p className="not_found_definitions">
+                  <p className="not_found_definitions not_found">
                     Sorry pal, we couldn't find definitions for the word you were looking for. You can try the  search again at later time or head to the web instead.
                   </p>
                 </div>
