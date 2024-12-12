@@ -35,6 +35,7 @@ class App extends Component {
 
 
     try {
+      https://api.dictionaryapi.dev/api/v2/entries/en/${this.state.searchValue}>
       const getData = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.state.searchValue}`)
       const data = await getData.json()
       if(data.message) {
